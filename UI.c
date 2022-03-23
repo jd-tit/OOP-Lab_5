@@ -1,4 +1,3 @@
-#define _CRTDBG_MAP_ALLOC
 #include <stdio.h>
 #include <string.h>
 #include "Functii.h"
