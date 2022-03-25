@@ -1,0 +1,10 @@
+# ninja log v5
+93	139	1648167617926424700	CheltuieliFamilie	2dda72c9a5b70af7
+0	94	6698710394464834	CMakeFiles/CheltuieliFamilie.dir/Cheltuiala.c.obj	997a94121db4b9bd
+10	96	6698710394484839	CMakeFiles/CheltuieliFamilie.dir/Functii.c.obj	f41475575cb41f7f
+13	103	6698710394560117	CMakeFiles/CheltuieliFamilie.dir/Main.c.obj	e668dce11cb54506
+21	103	6698710394570117	CMakeFiles/CheltuieliFamilie.dir/ctrl.c.obj	632aae98215482aa
+11	111	6698710394671088	CMakeFiles/CheltuieliFamilie.dir/Lista.c.obj	1e29a0c6ff63791
+18	143	6698710394993325	CMakeFiles/CheltuieliFamilie.dir/UI.c.obj	ffa2a94476450cb2
+15	152	6698710395084094	CMakeFiles/CheltuieliFamilie.dir/Teste.c.obj	e802a2eb88313095
+156	240	6698710395930774	CheltuieliFamilie.exe	59614ccd51c816b2

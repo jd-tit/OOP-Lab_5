@@ -1,0 +1,1294 @@
+        -:    0:Source:C:/Projects/fac/OOP/CheltuieliFamilie/Teste.c
+        -:    0:Graph:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\Teste.c.gcno
+        -:    0:Data:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\Teste.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include <assert.h>
+        -:    4:#include <stdlib.h>
+        -:    5:
+        -:    6:#include "Lista.h"
+        -:    7:#include "Functii.h"
+        -:    8:
+function testEliminareNewLine called 1 returned 100% blocks executed 67%
+        1:    9:void testEliminareNewLine()
+        -:   10:{
+        1:   11:	char v[10] = { 'a','l','t','e','l','e','\n' };
+        1:   12:	eliminareNewLine(v);
+        1:   12-block  0
+call    0 returned 1
+       1*:   13:	assert(strcmp(v,"altele")==0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   13-block  0
+call    2 never executed
+        1:   13-block  1
+        1:   14:}
+        -:   15:
+function testTransformareStringNumar called 1 returned 100% blocks executed 64%
+        1:   16:void testTransformareStringNumar()
+        -:   17:{
+       1*:   18:	assert(transformareStringNumar("1000") == 1000);
+        1:   18-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   18-block  1
+call    3 never executed
+        1:   18-block  2
+       1*:   19:	assert(transformareStringNumar("nu") == -1);
+        1:   19-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   19-block  1
+call    3 never executed
+        1:   19-block  2
+        1:   20:}
+        -:   21:
+function testVerificareDate called 2 returned 100% blocks executed 61%
+        2:   22:void testVerificareDate()
+        -:   23:{
+       2*:   24:	assert(verificareDate(-1, 100, "altele") == -1);
+        2:   24-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    %%%%%:   24-block  1
+call    3 never executed
+        2:   24-block  2
+       2*:   25:	assert(verificareDate(32, 100, "altele") == -1);
+        2:   25-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    %%%%%:   25-block  1
+call    3 never executed
+        2:   25-block  2
+       2*:   26:	assert(verificareDate(1, 0, "altele") == -2);
+        2:   26-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    %%%%%:   26-block  1
+call    3 never executed
+        2:   26-block  2
+       2*:   27:	assert(verificareDate(1, 100, "cuvant") == -3);
+        2:   27-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    %%%%%:   27-block  1
+call    3 never executed
+        2:   27-block  2
+       2*:   28:	assert(verificareDate(1, 100, "Altele") == -3);
+        2:   28-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    %%%%%:   28-block  1
+call    3 never executed
+        2:   28-block  2
+       2*:   29:	assert(verificareDate(1, 100, "altele") == 0);
+        2:   29-block  0
+call    0 returned 2
+branch  1 taken 0 (fallthrough)
+branch  2 taken 2
+    %%%%%:   29-block  1
+call    3 never executed
+        2:   29-block  2
+        2:   30:}
+        -:   31:
+function testeFunctii called 1 returned 100% blocks executed 100%
+        1:   32:void testeFunctii()
+        -:   33:{
+        1:   34:	testEliminareNewLine();
+        1:   34-block  0
+call    0 returned 1
+        1:   35:	testTransformareStringNumar();
+call    0 returned 1
+        1:   36:	testVerificareDate();
+call    0 returned 1
+        1:   37:}
+        -:   38:
+function testFormareCheltuiala called 1 returned 100% blocks executed 60%
+        1:   39:void testFormareCheltuiala()
+        -:   40:{
+        1:   41:	Cheltuiala* c = formareCheltuiala(1, 1, "altele");
+        1:   41-block  0
+call    0 returned 1
+       1*:   42:	assert(c->zi == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   42-block  0
+call    2 never executed
+        1:   42-block  1
+       1*:   43:	assert(c->suma == 1);
+        1:   43-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   43-block  1
+call    2 never executed
+        1:   43-block  2
+       1*:   44:	assert(strcmp(c->tip, "altele") == 0);
+        1:   44-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   44-block  1
+call    2 never executed
+        1:   44-block  2
+        1:   45:	distrugereCheltuiala(c);
+        1:   45-block  0
+call    0 returned 1
+        1:   46:}
+        -:   47:
+function testDistrugereCheltuiala called 1 returned 100% blocks executed 100%
+        1:   48:void testDistrugereCheltuiala()
+        -:   49:{
+        1:   50:	Cheltuiala* c = formareCheltuiala(1, 1, "altele");
+        1:   50-block  0
+call    0 returned 1
+        1:   51:	distrugereCheltuiala(c);
+call    0 returned 1
+        1:   52:}
+        -:   53:
+function testCopiereCheltuiala called 1 returned 100% blocks executed 65%
+        1:   54:void testCopiereCheltuiala()
+        -:   55:{
+        1:   56:	Cheltuiala* c = formareCheltuiala(1, 1, "altele");
+        1:   56-block  0
+call    0 returned 1
+        1:   57:	Cheltuiala* copie = copiereCheltuiala(c);
+call    0 returned 1
+       1*:   58:    assert(c->zi == copie->zi);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   58-block  0
+call    2 never executed
+        1:   58-block  1
+       1*:   59:	assert(c->suma == copie->suma);
+        1:   59-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   59-block  1
+call    2 never executed
+        1:   59-block  2
+       1*:   60:	assert(strcmp(c->tip, copie->tip)==0);
+        1:   60-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   60-block  1
+call    2 never executed
+        1:   60-block  2
+        1:   61:	distrugereCheltuiala(c);
+        1:   61-block  0
+call    0 returned 1
+        1:   62:	distrugereCheltuiala(copie);
+call    0 returned 1
+        1:   63:}
+        -:   64:
+function testeCheltuiala called 1 returned 100% blocks executed 100%
+        1:   65:void testeCheltuiala()
+        -:   66:{
+        1:   67:	testFormareCheltuiala();
+        1:   67-block  0
+call    0 returned 1
+        1:   68:	testDistrugereCheltuiala();
+call    0 returned 1
+        1:   69:	testCopiereCheltuiala();
+call    0 returned 1
+        1:   70:}
+        -:   71:
+function testIntializareLista called 1 returned 100% blocks executed 64%
+        1:   72:void testIntializareLista()
+        -:   73:{
+        1:   74:    Lista* test = malloc(sizeof(Lista));
+        1:   75:    initList(test, sizeof(Cheltuiala), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:   75-block  0
+call    0 returned 1
+       1*:   76:	assert(test->lungime == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   76-block  0
+call    2 never executed
+        1:   76-block  1
+       1*:   77:	assert(test->capacitate == INIT_MAX_SIZE);
+        1:   77-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   77-block  1
+call    2 never executed
+        1:   77-block  2
+        1:   78:    distrugereLista(test);
+        1:   78-block  0
+call    0 returned 1
+        1:   79:}
+        -:   80:
+function testGetLungime called 1 returned 100% blocks executed 75%
+        1:   81:void testGetLungime()
+        -:   82:{
+        1:   83:    Lista* test = malloc(sizeof(Lista));
+        1:   84:    initList(test, sizeof(Cheltuiala), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:   84-block  0
+call    0 returned 1
+       1*:   85:	assert(getLungime(test) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   85-block  0
+call    3 never executed
+        1:   85-block  1
+        1:   86:    distrugereLista(test);
+        1:   86-block  0
+call    0 returned 1
+        1:   87:}
+        -:   88:
+function testAdaugareInLista called 1 returned 100% blocks executed 64%
+        1:   89:void testAdaugareInLista()
+        -:   90:{
+        1:   91:    Lista* test = malloc(sizeof(Lista));
+        1:   92:    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:   92-block  0
+call    0 returned 1
+        1:   93:	Cheltuiala* c = formareCheltuiala(1, 1, "altele");
+call    0 returned 1
+        1:   94:    push_back(test, c);
+call    0 returned 1
+       1*:   95:	assert(getLungime(test) == 1);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:   95-block  0
+call    3 never executed
+        1:   95-block  1
+        1:   96:    Cheltuiala* test_c= get_element(test, 0);
+        1:   96-block  0
+call    0 returned 1
+       1*:   97:	assert(test_c->zi == 1);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   97-block  0
+call    2 never executed
+        1:   97-block  1
+       1*:   98:	assert(test_c->suma == 1);
+        1:   98-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   98-block  1
+call    2 never executed
+        1:   98-block  2
+       1*:   99:	assert(strcmp(test_c->tip, "altele") == 0);
+        1:   99-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   99-block  1
+call    2 never executed
+        1:   99-block  2
+        1:  100:	Cheltuiala* c1 = formareCheltuiala(2, 4, "mancare");
+        1:  100-block  0
+call    0 returned 1
+        1:  101:    push_back(test, c1);
+call    0 returned 1
+        -:  102:
+        1:  103:    test_c = get_element(test, 1);
+call    0 returned 1
+       1*:  104:	assert(test_c->zi == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  104-block  0
+call    2 never executed
+        1:  104-block  1
+       1*:  105:	assert(test_c->suma == 4);
+        1:  105-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  105-block  1
+call    2 never executed
+        1:  105-block  2
+       1*:  106:	assert(strcmp(test_c->tip, "mancare") == 0);
+        1:  106-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  106-block  1
+call    2 never executed
+        1:  106-block  2
+        1:  107:	Cheltuiala* c2 = formareCheltuiala(3, 6, "transport");
+        1:  107-block  0
+call    0 returned 1
+        -:  108:
+        1:  109:    push_back(test, c2);
+call    0 returned 1
+       1*:  110:	assert(test->capacitate == INIT_MAX_SIZE * 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  110-block  0
+call    2 never executed
+        1:  110-block  1
+        1:  111:    distrugereLista(test);
+        1:  111-block  0
+call    0 returned 1
+        1:  112:}
+        -:  113:
+function testInlocuireInLista called 1 returned 100% blocks executed 70%
+        1:  114:void testInlocuireInLista()
+        -:  115:{
+        1:  116:    Lista* test = malloc(sizeof(Lista));
+        1:  117:    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:  117-block  0
+call    0 returned 1
+        1:  118:	Cheltuiala* c = formareCheltuiala(1, 1, "altele");
+call    0 returned 1
+        1:  119:    push_back(test, c);
+call    0 returned 1
+        1:  120:	Cheltuiala* c1 = formareCheltuiala(2, 4, "mancare");
+call    0 returned 1
+        1:  121:	inlocuireInLista(test, c1, 0);
+call    0 returned 1
+        1:  122:    Cheltuiala* test_c = get_element(test, 0);
+call    0 returned 1
+       1*:  123:	assert(test_c->zi == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  123-block  0
+call    2 never executed
+        1:  123-block  1
+       1*:  124:	assert(test_c->suma == 4);
+        1:  124-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  124-block  1
+call    2 never executed
+        1:  124-block  2
+       1*:  125:	assert(strcmp(test_c->tip, "mancare") == 0);
+        1:  125-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  125-block  1
+call    2 never executed
+        1:  125-block  2
+        -:  126:
+        1:  127:    distrugereLista(test);
+        1:  127-block  0
+call    0 returned 1
+        1:  128:}
+        -:  129:
+function testExistaPozitie called 1 returned 100% blocks executed 73%
+        1:  130:void testExistaPozitie()
+        -:  131:{
+        1:  132:    Lista* test = malloc(sizeof(Lista));
+        1:  133:    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:  133-block  0
+call    0 returned 1
+        -:  134:
+        1:  135:	Cheltuiala* c = formareCheltuiala(1, 1, "altele");
+call    0 returned 1
+        1:  136:    push_back(test, c);
+call    0 returned 1
+       1*:  137:	assert(existaPozitie(0, test));
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  137-block  0
+call    3 never executed
+        1:  137-block  1
+       1*:  138:	assert(!existaPozitie(1, test));
+        1:  138-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  138-block  1
+call    3 never executed
+        1:  138-block  2
+        -:  139:
+        1:  140:    distrugereLista(test);
+        1:  140-block  0
+call    0 returned 1
+        1:  141:}
+        -:  142:
+function testEliminareDinLista called 1 returned 100% blocks executed 100%
+        1:  143:void testEliminareDinLista()
+        -:  144:{
+        -:  145://    Lista* test = malloc(sizeof(Lista));
+        -:  146://    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala);
+        -:  147://
+        -:  148://	Cheltuiala* c = formareCheltuiala(1, 1, "altele");
+        -:  149://	Cheltuiala* c1 = formareCheltuiala(2, 4, "mancare");
+        -:  150://    push_back(test, c);
+        -:  151://    push_back(test, c1);
+        -:  152://    eliminareDinLista(test, 0);
+        -:  153://    Cheltuiala* test_c = get_element(test, 0);
+        -:  154://
+        -:  155://	assert(getLungime(test) == 1);
+        -:  156://	assert(test_c->zi == 2);
+        -:  157://	assert(test_c->suma == 4);
+        -:  158://	assert(strcmp(test_c->tip, "mancare") == 0);
+        -:  159://
+        -:  160://    distrugereLista(test);
+        -:  161://	distrugereCheltuiala(&c);
+        1:  162:}
+        -:  163:
+function testDistrugereLista called 1 returned 100% blocks executed 100%
+        1:  164:void testDistrugereLista()
+        -:  165:{
+        1:  166:    Lista* test = malloc(sizeof(Lista));
+        1:  167:    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:  167-block  0
+call    0 returned 1
+        -:  168:
+        1:  169:	Cheltuiala* c = formareCheltuiala(42, 42, "altele");
+call    0 returned 1
+        1:  170:	Cheltuiala* c1 = formareCheltuiala(2, 4, "mancare");
+call    0 returned 1
+        1:  171:    push_back(test, c);
+call    0 returned 1
+        1:  172:    push_back(test, c1);
+call    0 returned 1
+        1:  173:    distrugereLista(test);
+call    0 returned 1
+        1:  174:}
+        -:  175:
+function testFiltrareZi called 1 returned 100% blocks executed 66%
+        1:  176:void testFiltrareZi()
+        -:  177:{
+        1:  178:    Lista* test = malloc(sizeof(Lista));
+        1:  179:    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:  179-block  0
+call    0 returned 1
+        -:  180:
+        1:  181:	Cheltuiala* c = formareCheltuiala(2, 1, "altele");
+call    0 returned 1
+        1:  182:	Cheltuiala* c1 = formareCheltuiala(4, 4, "mancare");
+call    0 returned 1
+        1:  183:    push_back(test, c);
+call    0 returned 1
+        1:  184:    push_back(test, c1);
+call    0 returned 1
+        -:  185:
+        1:  186:	Lista* zi1_1 = filt_zi('1', 1, test);
+call    0 returned 1
+        1:  187:	Lista* zi1_2 = filt_zi('1', 2, test);
+call    0 returned 1
+        -:  188:
+        1:  189:    Cheltuiala* t2 = get_element(zi1_2, 0);
+call    0 returned 1
+       1*:  190:	assert(getLungime(zi1_1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  190-block  0
+call    3 never executed
+        1:  190-block  1
+       1*:  191:	assert(getLungime(zi1_2) == 1);
+        1:  191-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  191-block  1
+call    3 never executed
+        1:  191-block  2
+       1*:  192:	assert(t2->zi == 2);
+        1:  192-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  192-block  1
+call    2 never executed
+        1:  192-block  2
+       1*:  193:	assert(t2->suma == 1);
+        1:  193-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  193-block  1
+call    2 never executed
+        1:  193-block  2
+       1*:  194:	assert(strcmp(t2->tip, "altele") == 0);
+        1:  194-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  194-block  1
+call    2 never executed
+        1:  194-block  2
+        -:  195:
+        1:  196:	Lista* zi2_1 = filt_zi('2', 3, test);
+        1:  196-block  0
+call    0 returned 1
+        1:  197:	Lista* zi2_2 = filt_zi('2', 4, test);
+call    0 returned 1
+        -:  198:
+        -:  199:
+        1:  200:    Cheltuiala* t4 = get_element(zi2_2, 0);
+call    0 returned 1
+        -:  201:
+       1*:  202:	assert(getLungime(zi2_1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  202-block  0
+call    3 never executed
+        1:  202-block  1
+       1*:  203:	assert(getLungime(zi2_2) == 1);
+        1:  203-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  203-block  1
+call    3 never executed
+        1:  203-block  2
+       1*:  204:	assert(t4->zi == 4);
+        1:  204-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  204-block  1
+call    2 never executed
+        1:  204-block  2
+       1*:  205:	assert(t4->suma == 4);
+        1:  205-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  205-block  1
+call    2 never executed
+        1:  205-block  2
+       1*:  206:	assert(strcmp(t4->tip, "mancare") == 0);
+        1:  206-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  206-block  1
+call    2 never executed
+        1:  206-block  2
+        -:  207:
+        1:  208:	Lista* zi3_1 = filt_zi('3', 5, test);
+        1:  208-block  0
+call    0 returned 1
+        1:  209:	Lista* zi3_2 = filt_zi('3', 3, test);
+call    0 returned 1
+        -:  210:
+        -:  211:
+        1:  212:    Cheltuiala* t6 = get_element(zi3_2, 0);
+call    0 returned 1
+        -:  213:
+       1*:  214:	assert(getLungime(zi3_1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  214-block  0
+call    3 never executed
+        1:  214-block  1
+       1*:  215:	assert(getLungime(zi3_2) == 1);
+        1:  215-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  215-block  1
+call    3 never executed
+        1:  215-block  2
+       1*:  216:	assert(t6->zi == 4);
+        1:  216-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  216-block  1
+call    2 never executed
+        1:  216-block  2
+       1*:  217:	assert(t6->suma == 4);
+        1:  217-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  217-block  1
+call    2 never executed
+        1:  217-block  2
+       1*:  218:	assert(strcmp(t6->tip, "mancare") == 0);
+        1:  218-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  218-block  1
+call    2 never executed
+        1:  218-block  2
+        -:  219:
+        1:  220:    distrugereLista(test);
+        1:  220-block  0
+call    0 returned 1
+        1:  221:    distrugereLista(zi1_1);
+call    0 returned 1
+        1:  222:    distrugereLista(zi1_2);
+call    0 returned 1
+        1:  223:    distrugereLista(zi2_1);
+call    0 returned 1
+        1:  224:    distrugereLista(zi2_2);
+call    0 returned 1
+        1:  225:    distrugereLista(zi3_1);
+call    0 returned 1
+        1:  226:    distrugereLista(zi3_2);
+call    0 returned 1
+        1:  227:}
+        -:  228:
+function testFiltrareSuma called 1 returned 100% blocks executed 66%
+        1:  229:void testFiltrareSuma()
+        -:  230:{
+        1:  231:    Lista* test = malloc(sizeof(Lista));
+        1:  232:    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:  232-block  0
+call    0 returned 1
+        -:  233:
+        1:  234:	Cheltuiala* c = formareCheltuiala(2, 3, "altele");
+call    0 returned 1
+        1:  235:	Cheltuiala* c1 = formareCheltuiala(4, 5, "mancare");
+call    0 returned 1
+        1:  236:    push_back(test, c);
+call    0 returned 1
+        1:  237:    push_back(test, c1);
+call    0 returned 1
+        1:  238:	Lista* suma1_1 = filt_suma('1', 2, test);
+call    0 returned 1
+        1:  239:	Lista* suma1_2 = filt_suma('1', 4, test);
+call    0 returned 1
+        -:  240:
+       1*:  241:	assert(getLungime(suma1_1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  241-block  0
+call    3 never executed
+        1:  241-block  1
+       1*:  242:	assert(getLungime(suma1_2) == 1);
+        1:  242-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  242-block  1
+call    3 never executed
+        1:  242-block  2
+        -:  243:
+        1:  244:    Cheltuiala* s2 = get_element(suma1_2, 0);
+        1:  244-block  0
+call    0 returned 1
+        -:  245:
+       1*:  246:	assert(s2->zi == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  246-block  0
+call    2 never executed
+        1:  246-block  1
+       1*:  247:	assert(s2->suma == 3);
+        1:  247-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  247-block  1
+call    2 never executed
+        1:  247-block  2
+       1*:  248:	assert(strcmp(s2->tip, "altele") == 0);
+        1:  248-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  248-block  1
+call    2 never executed
+        1:  248-block  2
+        -:  249:
+        1:  250:	Lista* suma2_1 = filt_suma('2', 4, test);
+        1:  250-block  0
+call    0 returned 1
+        1:  251:	Lista* suma2_2 = filt_suma('2', 5, test);
+call    0 returned 1
+        -:  252:
+        -:  253:
+        1:  254:    Cheltuiala* s4 = get_element(suma2_2, 0);
+call    0 returned 1
+        -:  255:
+       1*:  256:	assert(getLungime(suma2_1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  256-block  0
+call    3 never executed
+        1:  256-block  1
+       1*:  257:	assert(getLungime(suma2_2) == 1);
+        1:  257-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  257-block  1
+call    3 never executed
+        1:  257-block  2
+       1*:  258:	assert(s4->zi == 4);
+        1:  258-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  258-block  1
+call    2 never executed
+        1:  258-block  2
+       1*:  259:	assert(s4->suma == 5);
+        1:  259-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  259-block  1
+call    2 never executed
+        1:  259-block  2
+       1*:  260:	assert(strcmp(s4->tip, "mancare") == 0);
+        1:  260-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  260-block  1
+call    2 never executed
+        1:  260-block  2
+        -:  261:
+        1:  262:	Lista* suma3_1 = filt_suma('3', 7, test);
+        1:  262-block  0
+call    0 returned 1
+        1:  263:	Lista* suma3_2 = filt_suma('3', 4, test);
+call    0 returned 1
+        -:  264:
+        -:  265:
+        1:  266:    Cheltuiala* s6 = get_element(suma3_2, 0);
+call    0 returned 1
+        -:  267:
+       1*:  268:	assert(getLungime(suma3_1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  268-block  0
+call    3 never executed
+        1:  268-block  1
+       1*:  269:	assert(getLungime(suma3_2) == 1);
+        1:  269-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  269-block  1
+call    3 never executed
+        1:  269-block  2
+       1*:  270:	assert(s6->zi == 4);
+        1:  270-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  270-block  1
+call    2 never executed
+        1:  270-block  2
+       1*:  271:	assert(s6->suma == 5);
+        1:  271-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  271-block  1
+call    2 never executed
+        1:  271-block  2
+       1*:  272:	assert(strcmp(s6->tip, "mancare") == 0);
+        1:  272-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  272-block  1
+call    2 never executed
+        1:  272-block  2
+        -:  273:
+        1:  274:    distrugereLista(test);
+        1:  274-block  0
+call    0 returned 1
+        1:  275:    distrugereLista(suma1_1);
+call    0 returned 1
+        1:  276:    distrugereLista(suma1_2);
+call    0 returned 1
+        1:  277:    distrugereLista(suma2_1);
+call    0 returned 1
+        1:  278:    distrugereLista(suma2_2);
+call    0 returned 1
+        1:  279:    distrugereLista(suma3_1);
+call    0 returned 1
+        1:  280:    distrugereLista(suma3_2);
+call    0 returned 1
+        1:  281:}
+        -:  282:
+function testFiltrareTip called 1 returned 100% blocks executed 64%
+        1:  283:void testFiltrareTip()
+        -:  284:{
+        1:  285:    Lista* test = malloc(sizeof(Lista));
+        1:  286:    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:  286-block  0
+call    0 returned 1
+        -:  287:
+        1:  288:	Cheltuiala* c = formareCheltuiala(2, 1, "altele");
+call    0 returned 1
+        1:  289:	Cheltuiala* c1 = formareCheltuiala(4, 4, "mancare");
+call    0 returned 1
+        1:  290:    push_back(test, c);
+call    0 returned 1
+        1:  291:    push_back(test, c1);
+call    0 returned 1
+        -:  292:
+        1:  293:	Lista* tip1_1 = filt_tip('1', "transport", test);
+call    0 returned 1
+        1:  294:	Lista* tip1_2 = filt_tip('1', "altele", test);
+call    0 returned 1
+        -:  295:
+        -:  296:
+        1:  297:    Cheltuiala* e0 = get_element(tip1_2, 0);
+call    0 returned 1
+        -:  298:
+       1*:  299:	assert(getLungime(tip1_1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  299-block  0
+call    3 never executed
+        1:  299-block  1
+       1*:  300:	assert(getLungime(tip1_2) == 1);
+        1:  300-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  300-block  1
+call    3 never executed
+        1:  300-block  2
+       1*:  301:	assert(e0->zi == 2);
+        1:  301-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  301-block  1
+call    2 never executed
+        1:  301-block  2
+       1*:  302:	assert(e0->suma == 1);
+        1:  302-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  302-block  1
+call    2 never executed
+        1:  302-block  2
+       1*:  303:	assert(strcmp(e0->tip, "altele") == 0);
+        1:  303-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  303-block  1
+call    2 never executed
+        1:  303-block  2
+        -:  304:
+        1:  305:	Lista* tip2 = filt_tip('2', "transport", test);
+        1:  305-block  0
+call    0 returned 1
+        -:  306:
+        1:  307:    Cheltuiala* e1 = get_element(tip2, 0);
+call    0 returned 1
+        1:  308:    Cheltuiala* e2 = get_element(tip2, 1);
+call    0 returned 1
+        -:  309:
+       1*:  310:	assert(getLungime(tip2) == 2);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  310-block  0
+call    3 never executed
+        1:  310-block  1
+       1*:  311:	assert(e1->zi == 2);
+        1:  311-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  311-block  1
+call    2 never executed
+        1:  311-block  2
+       1*:  312:	assert(e1->suma == 1);
+        1:  312-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  312-block  1
+call    2 never executed
+        1:  312-block  2
+       1*:  313:	assert(strcmp(e1->tip, "altele") == 0);
+        1:  313-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  313-block  1
+call    2 never executed
+        1:  313-block  2
+       1*:  314:	assert(e2->zi == 4);
+        1:  314-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  314-block  1
+call    2 never executed
+        1:  314-block  2
+       1*:  315:	assert(e2->suma == 4);
+        1:  315-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  315-block  1
+call    2 never executed
+        1:  315-block  2
+       1*:  316:	assert(strcmp(e2->tip, "mancare") == 0);
+        1:  316-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  316-block  1
+call    2 never executed
+        1:  316-block  2
+        -:  317:
+        1:  318:    distrugereLista(test);
+        1:  318-block  0
+call    0 returned 1
+        1:  319:    distrugereLista(tip1_1);
+call    0 returned 1
+        1:  320:    distrugereLista(tip1_2);
+call    0 returned 1
+        1:  321:    distrugereLista(tip2);
+call    0 returned 1
+        -:  322:
+        1:  323:}
+        -:  324:
+function testeLista called 1 returned 100% blocks executed 100%
+        1:  325:void testeLista()
+        -:  326:{
+        1:  327:	testIntializareLista();
+        1:  327-block  0
+call    0 returned 1
+        1:  328:	testGetLungime();
+call    0 returned 1
+        1:  329:	testVerificareDate();
+call    0 returned 1
+        1:  330:	testDistrugereLista();
+call    0 returned 1
+        1:  331:	testAdaugareInLista();
+call    0 returned 1
+        1:  332:	testInlocuireInLista();
+call    0 returned 1
+        1:  333:	testExistaPozitie();
+call    0 returned 1
+        1:  334:	testEliminareDinLista();
+call    0 returned 1
+        1:  335:	testFiltrareZi();
+call    0 returned 1
+        1:  336:	testFiltrareSuma();
+call    0 returned 1
+        1:  337:	testFiltrareTip();
+call    0 returned 1
+        1:  338:}
+        -:  339:
+function testCompSuma called 1 returned 100% blocks executed 73%
+        1:  340:void testCompSuma()
+        -:  341:{
+        1:  342:	Cheltuiala* c = formareCheltuiala(2, 1, "altele");
+        1:  342-block  0
+call    0 returned 1
+        1:  343:	Cheltuiala* c1 = formareCheltuiala(4, 4, "mancare");
+call    0 returned 1
+        1:  344:	Cheltuiala* c2 = formareCheltuiala(6, 1, "mancare");
+call    0 returned 1
+       1*:  345:	assert(compSuma(c, c2, 1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  345-block  0
+call    3 never executed
+        1:  345-block  1
+       1*:  346:	assert(compSuma(c, c1, 1) == -1);
+        1:  346-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  346-block  1
+call    3 never executed
+        1:  346-block  2
+       1*:  347:	assert(compSuma(c1, c2, 1) == 1);
+        1:  347-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  347-block  1
+call    3 never executed
+        1:  347-block  2
+        -:  348:
+        1:  349:	distrugereCheltuiala(c);
+        1:  349-block  0
+call    0 returned 1
+        1:  350:	distrugereCheltuiala(c1);
+call    0 returned 1
+        1:  351:	distrugereCheltuiala(c2);
+call    0 returned 1
+        1:  352:}
+        -:  353:
+function testCompTip called 1 returned 100% blocks executed 73%
+        1:  354:void testCompTip()
+        -:  355:{
+        1:  356:	Cheltuiala* c = formareCheltuiala(2, 1, "altele");
+        1:  356-block  0
+call    0 returned 1
+        1:  357:	Cheltuiala* c1 = formareCheltuiala(4, 4, "mancare");
+call    0 returned 1
+        1:  358:	Cheltuiala* c2 = formareCheltuiala(6, 1, "mancare");
+call    0 returned 1
+       1*:  359:	assert(compTip(c1, c2, 1) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  359-block  0
+call    3 never executed
+        1:  359-block  1
+       1*:  360:	assert(compTip(c, c1, 1) == -1);
+        1:  360-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  360-block  1
+call    3 never executed
+        1:  360-block  2
+       1*:  361:	assert(compTip(c2, c, 1) == 1);
+        1:  361-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  361-block  1
+call    3 never executed
+        1:  361-block  2
+        -:  362:
+        1:  363:	distrugereCheltuiala(c);
+        1:  363-block  0
+call    0 returned 1
+        1:  364:	distrugereCheltuiala(c1);
+call    0 returned 1
+        1:  365:	distrugereCheltuiala(c2);
+call    0 returned 1
+        1:  366:}
+        -:  367:
+function testSortareLista called 1 returned 100% blocks executed 60%
+        1:  368:void testSortareLista()
+        -:  369:{
+        1:  370:    Lista* test = malloc(sizeof(Lista));
+        1:  371:    initList(test, sizeof(Cheltuiala*), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:  371-block  0
+call    0 returned 1
+        -:  372:
+        1:  373:	Cheltuiala* c = formareCheltuiala(2, 1, "mancare");
+call    0 returned 1
+        1:  374:	Cheltuiala* c1 = formareCheltuiala(4, 4, "altele");
+call    0 returned 1
+        1:  375:    push_back(test, c);
+call    0 returned 1
+        1:  376:    push_back(test, c1);
+call    0 returned 1
+        -:  377:
+        1:  378:	Lista* rez1 = sortareLista(test, compSuma, 1);
+call    0 returned 1
+        -:  379:
+        1:  380:    Cheltuiala* e1 = get_element(rez1, 0);
+call    0 returned 1
+        1:  381:    Cheltuiala* e2 = get_element(rez1, 1);
+call    0 returned 1
+       1*:  382:	assert(e1->zi == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  382-block  0
+call    2 never executed
+        1:  382-block  1
+       1*:  383:	assert(e1->suma == 1);
+        1:  383-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  383-block  1
+call    2 never executed
+        1:  383-block  2
+       1*:  384:	assert(strcmp(e1->tip, "mancare") == 0);
+        1:  384-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  384-block  1
+call    2 never executed
+        1:  384-block  2
+       1*:  385:	assert(e2->zi == 4);
+        1:  385-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  385-block  1
+call    2 never executed
+        1:  385-block  2
+       1*:  386:	assert(e2->suma == 4);
+        1:  386-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  386-block  1
+call    2 never executed
+        1:  386-block  2
+       1*:  387:	assert(strcmp(e2->tip, "altele") == 0);
+        1:  387-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  387-block  1
+call    2 never executed
+        1:  387-block  2
+        -:  388:
+        -:  389:
+        1:  390:	Lista* rez2 = sortareLista(test, compSuma, -1);
+        1:  390-block  0
+call    0 returned 1
+        1:  391:    e1 = get_element(rez2, 0);
+call    0 returned 1
+        1:  392:    e2 = get_element(rez2, 1);
+call    0 returned 1
+       1*:  393:	assert(e2->zi == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  393-block  0
+call    2 never executed
+        1:  393-block  1
+       1*:  394:	assert(e2->suma == 1);
+        1:  394-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  394-block  1
+call    2 never executed
+        1:  394-block  2
+       1*:  395:	assert(strcmp(e2->tip, "mancare") == 0);
+        1:  395-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  395-block  1
+call    2 never executed
+        1:  395-block  2
+       1*:  396:	assert(e1->zi == 4);
+        1:  396-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  396-block  1
+call    2 never executed
+        1:  396-block  2
+       1*:  397:	assert(e1->suma == 4);
+        1:  397-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  397-block  1
+call    2 never executed
+        1:  397-block  2
+       1*:  398:	assert(strcmp(e1->tip, "altele") == 0);
+        1:  398-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  398-block  1
+call    2 never executed
+        1:  398-block  2
+        -:  399:
+        1:  400:	Lista* rez3 = sortareLista(test, compTip, 1);
+        1:  400-block  0
+call    0 returned 1
+        1:  401:    e1 = get_element(rez3, 0);
+call    0 returned 1
+        1:  402:    e2 = get_element(rez3, 1);
+call    0 returned 1
+       1*:  403:	assert(e2->zi == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  403-block  0
+call    2 never executed
+        1:  403-block  1
+       1*:  404:	assert(e2->suma == 1);
+        1:  404-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  404-block  1
+call    2 never executed
+        1:  404-block  2
+       1*:  405:	assert(strcmp(e2->tip, "mancare") == 0);
+        1:  405-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  405-block  1
+call    2 never executed
+        1:  405-block  2
+       1*:  406:	assert(e1->zi == 4);
+        1:  406-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  406-block  1
+call    2 never executed
+        1:  406-block  2
+       1*:  407:	assert(e1->suma == 4);
+        1:  407-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  407-block  1
+call    2 never executed
+        1:  407-block  2
+       1*:  408:	assert(strcmp(e1->tip, "altele") == 0);
+        1:  408-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  408-block  1
+call    2 never executed
+        1:  408-block  2
+        -:  409:
+        1:  410:	Lista* rez4 = sortareLista(test, compTip, -1);
+        1:  410-block  0
+call    0 returned 1
+        1:  411:    e1 = get_element(rez4, 0);
+call    0 returned 1
+        1:  412:    e2 = get_element(rez4, 1);
+call    0 returned 1
+       1*:  413:	assert(e1->zi == 2);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  413-block  0
+call    2 never executed
+        1:  413-block  1
+       1*:  414:	assert(e1->suma == 1);
+        1:  414-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  414-block  1
+call    2 never executed
+        1:  414-block  2
+       1*:  415:	assert(strcmp(e1->tip, "mancare") == 0);
+        1:  415-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  415-block  1
+call    2 never executed
+        1:  415-block  2
+       1*:  416:	assert(e2->zi == 4);
+        1:  416-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  416-block  1
+call    2 never executed
+        1:  416-block  2
+       1*:  417:	assert(e2->suma == 4);
+        1:  417-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  417-block  1
+call    2 never executed
+        1:  417-block  2
+       1*:  418:	assert(strcmp(e2->tip, "altele") == 0);
+        1:  418-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  418-block  1
+call    2 never executed
+        1:  418-block  2
+        -:  419:
+        1:  420:    distrugereLista(test);
+        1:  420-block  0
+call    0 returned 1
+        1:  421:    distrugereLista(rez1);
+call    0 returned 1
+        1:  422:    distrugereLista(rez2);
+call    0 returned 1
+        1:  423:    distrugereLista(rez3);
+call    0 returned 1
+        1:  424:    distrugereLista(rez4);
+call    0 returned 1
+        1:  425:}
+        -:  426:
+function testeSortare called 1 returned 100% blocks executed 100%
+        1:  427:void testeSortare()
+        -:  428:{
+        1:  429:	testCompSuma();
+        1:  429-block  0
+call    0 returned 1
+        1:  430:	testCompTip();
+call    0 returned 1
+        1:  431:	testSortareLista();
+call    0 returned 1
+        1:  432:}
+        -:  433:
+function teste called 1 returned 100% blocks executed 100%
+        1:  434:void teste()
+        -:  435:{
+        1:  436:	testeFunctii();
+        1:  436-block  0
+call    0 returned 1
+        1:  437:	testeCheltuiala();
+call    0 returned 1
+        1:  438:	testeLista();
+call    0 returned 1
+        1:  439:	testeSortare();
+call    0 returned 1
+        1:  440:}

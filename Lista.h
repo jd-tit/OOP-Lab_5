@@ -1,14 +1,36 @@
 #pragma once
+
+#include <stdbool.h>
+#include <stdlib.h>
+
 #include "Cheltuiala.h"
+#include "errors.h"
 
-typedef struct
+#define RESIZE_FACTOR 2
+#define INIT_MAX_SIZE 2
+
+typedef void (*destructor)(void* elem);
+typedef void* (*copy_function)(void*);
+
+typedef struct Lista
 {
-	cheltuiala* element;
-	int lungime;
-	int capacitate;
-} lista;
+	void* elements;
+    size_t element_size;
+    size_t lungime;
+    size_t capacitate;
+    copy_function copy;
+    destructor destroy_element;
+} Lista;
 
-typedef int(*functieComparare)(cheltuiala* c1, cheltuiala* c2,int ordine);
+
+/**
+ * Copy a list.
+ * @param original - the list to be copied
+ * @return The copy of the given list.
+ */
+Lista* copyLista(Lista* original);
+
+
 /*
    Functie de comparare pentru 2 elemente
    Returneaza:
@@ -16,70 +38,80 @@ typedef int(*functieComparare)(cheltuiala* c1, cheltuiala* c2,int ordine);
 	1, daca c1>c2
    -1, altfel
 */
+typedef int(*functieComparare)(Cheltuiala* c1, Cheltuiala* c2, int ordine);
 
-lista initializareLista();
 /*
-* Formeaza o variabila de tip lista
+* Formeaza o variabila de tip Lista
 * Functia returneaza variabila formata
 */
+void initList(Lista* list, size_t elem_size, destructor element_destructor, copy_function copy);
 
-int getLungime(lista* l);
+
+
 /*
 * Returneaza lungimea listei spre care pointeaza l
 */
+size_t getLungime(Lista* l);
 
-void adaugareInLista(lista* l, cheltuiala c);
+
 /*
-* Adauga in lista spre care pointeaza l cheltuiala c
+* Adauga in Lista spre care pointeaza l elementul dat
 */
+void push_back(Lista* l, void* elem);
 
-cheltuiala inlocuireInLista(lista* l, cheltuiala c, int pozitie);
+
 /*
-* Pune cheltuiala c pe pozitia data din lista spre care pointeaza l
+* Pune Cheltuiala c pe pozitia data din Lista spre care pointeaza l
 * Returneaza elementul inlocuit
 */
+void inlocuireInLista(Lista* l, void* elem, size_t index);
 
-cheltuiala eliminareDinLista(lista* l, int pozitie);
+
 /*
-* Elimina elementul de pe pozitia data din lista spre care pointeaza l
+* Elimina elementul de pe pozitia data din Lista spre care pointeaza l
 * Returneaza elementul eliminat
 */
+Cheltuiala eliminareDinLista(Lista *l, size_t index);
 
-int existaPozitie(int numar, lista* l);
+
 /*
-* Verifica daca exista pozitia data in lista spre care pointeaza l
+* Verifica daca exista pozitia data in Lista spre care pointeaza l
 * Returneaza:
   -1, daca nu exista
    0, daca exista
 */
+bool existaPozitie(int numar, Lista* l);
 
-void distrugereLista(lista* l);
+
 /*
-* Distruge lista
+* Distruge Lista
 */
+void distrugereLista(Lista *l);
 
-lista filt_zi(int mod, int zi, lista* l);
+
 /*
-* Formeaza o noua variabila de tip lista care sa contina toate elementele din lista spre care pointeaza l
+* Formeaza o noua variabila de tip Lista care sa contina toate elementele din Lista spre care pointeaza l
   care respecta modul dat referitor la zi
-* Returneaza noua lista
+* Returneaza noua Lista
 */
+Lista * filt_zi(int mod, int zi, Lista* l);
 
-lista filt_suma(char mod, int suma, lista* l);
 /*
-* Formeaza o noua variabila de tip lista care sa contina toate elementele din lista spre care pointeaza l
+* Formeaza o noua variabila de tip Lista care sa contina toate elementele din Lista spre care pointeaza l
   care respecta modul dat referitor la suma
-* Returneaza noua lista
+* Returneaza noua Lista
 */
+Lista * filt_suma(char mod, int suma, Lista* l);
 
-lista filt_tip(char mod, char tip[], lista* l);
+
 /*
-* Formeaza o noua variabila de tip lista care sa contina toate elementele din lista spre care pointeaza l
+* Formeaza o noua variabila de tip Lista care sa contina toate elementele din Lista spre care pointeaza l
   care respecta modul dat referitor la tip
-* Returneaza noua lista
+* Returneaza noua Lista
 */
+Lista * filt_tip(char mod, char tip[], Lista* l);
 
-int compSuma(cheltuiala* c1, cheltuiala* c2,int ordine);
+
 /*
 * Functie de comparare pentru sumele celor doua elemente
   Returneaza:
@@ -87,8 +119,9 @@ int compSuma(cheltuiala* c1, cheltuiala* c2,int ordine);
 	1, daca c1>c2
    -1, altfel
 */
+int compSuma(Cheltuiala* c1, Cheltuiala* c2, int ordine);
 
-int compTip(cheltuiala* c1, cheltuiala* c2,int ordine);
+
 /*
 * Functie de comparare pentru tipurile celor doua elemente
   Returneaza:
@@ -96,15 +129,27 @@ int compTip(cheltuiala* c1, cheltuiala* c2,int ordine);
 	1, daca c1>c2
    -1, altfel
 */
+int compTip(Cheltuiala* c1, Cheltuiala* c2, int ordine);
 
-lista sortareLista(lista* l, functieComparare fcomp,int ordine);
-/*
-* Formeaza o noua variabila de tip lista in care elementele din lista spre care pointeaza l sunt
-  sortate dupa functia de comparare data si in ordinea data
-* Returneaza noua lista
-*/
 
-cheltuiala obtinere(lista* l, int pozitie);
 /*
-* Returneaza cheltuiala de pe pozitia data
+* Formează o nouă variabila de tip listă in care elementele din Lista spre care arată l sunt
+  sortate după funcția de comparare dată și în ordinea dată
+* Returnează noua Lista
 */
+Lista* sortareLista(Lista* l, functieComparare cmp_function, int ordine);
+
+
+/*
+* Returnează Cheltuiala de pe poziția dată
+*/
+void* get_element(Lista* l, size_t index);
+
+
+/**
+ * Crește mărimea unei liste.
+ * @param l - Lista de mărit
+ * @return Codul de ieșire: ALLOC_ERROR sau EXIT_SUCCESS.
+ * @post Dacă alocarea eșuează, pointerul `l` va rămâne valid și va arăta către aceeași zonă din memorie.
+ */
+int increase_size(Lista* l);

@@ -1,0 +1,43 @@
+        -:    0:Source:C:/Projects/fac/OOP/CheltuieliFamilie/ctrl.c
+        -:    0:Graph:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\ctrl.c.gcno
+        -:    0:Data:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\ctrl.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by jdt on 2022-03-25.
+        -:    3://
+        -:    4:
+        -:    5:#include "Lista.h"
+        -:    6:#include "Cheltuiala.h"
+        -:    7:#include <stdlib.h>
+        -:    8:
+        -:    9:#include "ctrl.h"
+        -:   10:
+function get_weekend_expenses called 0 returned 0% blocks executed 0%
+    #####:   11:Lista* get_weekend_expenses(Lista* expenseList){
+    #####:   12:    Lista* result = malloc(sizeof(Lista));
+        -:   13:
+    #####:   14:    initList(result, sizeof(Cheltuiala), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+    %%%%%:   14-block  0
+call    0 never executed
+    #####:   15:    for(size_t i = 0; i < expenseList->lungime; ++i){
+    %%%%%:   15-block  0
+    %%%%%:   15-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   16:        Cheltuiala* crt = get_element(expenseList, i);
+    %%%%%:   16-block  0
+call    0 never executed
+    #####:   17:        if(crt->zi % 7 == 0 || crt->zi % 7 == 6){
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   17-block  0
+branch  2 never executed
+branch  3 never executed
+    #####:   18:            push_back(result, crt);
+    %%%%%:   18-block  0
+call    0 never executed
+        -:   19:        }
+        -:   20:    }
+    #####:   21:    return result;
+    %%%%%:   21-block  0
+        -:   22:}

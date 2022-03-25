@@ -42,17 +42,14 @@ void testGetLungime();
 /*
 * Testeaza funcita getLungime
 */
-void testVerificareDate();
-/*
-* Testeaza funcita verificareDate
-*/
+
 void testDistrugereLista();
 /*
 * Testeaza funcita distrugereLista
 */
 void testAdaugareInLista();
 /*
-* Testeaza funcita adaugareInLista
+* Testeaza funcita push_back
 */
 void testInlocuireInLista();
 /*
@@ -80,7 +77,7 @@ void testFiltrareTip();
 */
 void testeLista();
 /*
-* Testeaza functiile referitoare la lista
+* Testeaza functiile referitoare la Lista
 */
 void testCompSuma();
 /*

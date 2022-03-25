@@ -1,6 +1,6 @@
-#define _CRTDBG_MAP_ALLOC
+//#define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
-#include <crtdbg.h>
+//#include <crtdbg.h>
 #include <stdio.h>
 
 #include "UI.h"
@@ -11,6 +11,6 @@ int main()
 	teste();
 	printf("Teste efectuate cu succes.");
 	run();
-	_CrtDumpMemoryLeaks();
+	//_CrtDumpMemoryLeaks();
 	return 0;
 }

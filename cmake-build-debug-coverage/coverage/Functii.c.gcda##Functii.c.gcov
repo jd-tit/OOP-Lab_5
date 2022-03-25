@@ -1,0 +1,90 @@
+        -:    0:Source:C:/Projects/fac/OOP/CheltuieliFamilie/Functii.c
+        -:    0:Graph:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\Functii.c.gcno
+        -:    0:Data:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\Functii.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4://#include "Domain.h"
+        -:    5:
+function eliminareNewLine called 2 returned 100% blocks executed 100%
+        2:    6:void eliminareNewLine(char v[])
+        -:    7:{
+        -:    8:	//int i = 0;
+        -:    9:	//while (v[i] != '\n' || i<strlen(v))
+        -:   10:		//i++;
+        -:   11:	//v[i] = '\0';
+        2:   12:	v[strlen(v) - 1] = '\0';
+        2:   13:}
+        -:   14:
+function verificareDate called 12 returned 100% blocks executed 100%
+       12:   15:int verificareDate(int zi, int suma, char tip[17])
+        -:   16:{
+       12:   17:	if (zi < 1 || zi>31)
+       12:   17-block  0
+branch  0 taken 10 (fallthrough)
+branch  1 taken 2
+       10:   17-block  1
+branch  2 taken 2 (fallthrough)
+branch  3 taken 8
+        4:   18:		return -1;
+        4:   18-block  0
+        8:   19:	if (suma < 1)
+        8:   19-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 6
+        2:   20:		return -2;
+        2:   20-block  0
+        6:   21:	if (    strcmp(tip,"mancare")!=0 &&
+        6:   21-block  0
+branch  0 taken 6 (fallthrough)
+branch  1 taken 0
+        6:   22:            strcmp(tip, "transport")!=0 &&
+        6:   22-block  0
+branch  0 taken 6 (fallthrough)
+branch  1 taken 0
+        6:   23:            strcmp(tip, "telefon&internet")!=0 &&
+        6:   23-block  0
+branch  0 taken 6 (fallthrough)
+branch  1 taken 0
+        6:   24:            strcmp(tip, "imbracaminte")!=0 &&
+        6:   24-block  0
+branch  0 taken 6 (fallthrough)
+branch  1 taken 0
+        6:   25:            strcmp(tip, "altele")!=0)
+        6:   25-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 2
+        4:   26:		return -3;
+        4:   26-block  0
+        2:   27:	return 0;
+        2:   27-block  0
+        -:   28:}
+        -:   29:
+function transformareStringNumar called 2 returned 100% blocks executed 100%
+        2:   30:int transformareStringNumar(char string[])
+        -:   31:{
+        2:   32:	int numar = 0;
+        6:   33:	for (int i = 0; i <= strlen(string) - 1; i++)
+        2:   33-block  0
+        6:   33-block  1
+branch  0 taken 5
+branch  1 taken 1 (fallthrough)
+        -:   34:	{
+        5:   35:		if (string[i] > 57 || string[i] < 48)
+        5:   35-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 1
+        4:   35-block  1
+branch  2 taken 0 (fallthrough)
+branch  3 taken 4
+        1:   36:			return -1;
+        1:   36-block  0
+        -:   37:		else
+        4:   38:			numar = numar * 10 + (string[i] - '0');
+        4:   38-block  0
+        -:   39:	}
+        1:   40:	return numar;
+        1:   40-block  0
+        -:   41:}
+        -:   42:

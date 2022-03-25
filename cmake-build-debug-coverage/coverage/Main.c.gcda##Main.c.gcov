@@ -1,0 +1,25 @@
+        -:    0:Source:C:/Projects/fac/OOP/CheltuieliFamilie/Main.c
+        -:    0:Graph:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\Main.c.gcno
+        -:    0:Data:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\Main.c.gcda
+        -:    0:Runs:1
+        -:    1://#define _CRTDBG_MAP_ALLOC
+        -:    2:#include <stdlib.h>
+        -:    3://#include <crtdbg.h>
+        -:    4:#include <stdio.h>
+        -:    5:
+        -:    6:#include "UI.h"
+        -:    7:#include "Teste.h"
+        -:    8:
+function main called 1 returned 0% blocks executed 80%
+        1:    9:int main()
+        -:   10:{
+        1:   11:	teste();
+        1:   11-block  0
+call    0 returned 1
+        1:   12:	printf("Teste efectuate cu succes.");
+call    0 returned 1
+        1:   13:	run();
+call    0 returned 0
+        -:   14:	//_CrtDumpMemoryLeaks();
+    #####:   15:	return 0;
+        -:   16:}

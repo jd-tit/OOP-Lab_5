@@ -1,0 +1,10 @@
+//
+// Created by jdt on 3/23/2022.
+//
+
+#ifndef CHELTUIELIFAMILIE_ERRORS_H
+#define CHELTUIELIFAMILIE_ERRORS_H
+
+enum Errors{ALLOC_ERROR = 10};
+
+#endif //CHELTUIELIFAMILIE_ERRORS_H

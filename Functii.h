@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Domain.h"
+//#include "Domain.h"
 
 int transformareStringNumar(char string[]);
 /*

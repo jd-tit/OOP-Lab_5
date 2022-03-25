@@ -1,24 +1,24 @@
 #pragma once
-typedef struct
+typedef struct Cheltuiala
 {
 	int zi;
 	int suma;
 	char* tip;
-}cheltuiala;
+}Cheltuiala;
 
-cheltuiala formareCheltuiala(int zi, int suma, char* tip);
+Cheltuiala * formareCheltuiala(int zi, int suma, char* tip);
 /*
-* Formeaza o variabila de tip cheltuiala cu datele transmise
+* Formeaza o variabila de tip Cheltuiala cu datele transmise
 * Functia returneaza variabila formata
 */
 
-cheltuiala copiereCheltuiala(cheltuiala c);
+Cheltuiala * copiereCheltuiala(Cheltuiala *c);
 /*
 * Copiaza datele cheltuielii
-* Returneaza o cheltuiala cu date identice
+* Returneaza o Cheltuiala cu date identice
 */
 
-void distrugereCheltuiala(cheltuiala* c);
+void distrugereCheltuiala(void* elem);
 /*
-* Elibereaza memoria de pe heap la cheltuiala
+* Elibereaza memoria de pe heap la Cheltuiala
 */

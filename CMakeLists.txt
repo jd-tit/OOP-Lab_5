@@ -5,6 +5,8 @@ set(CMAKE_C_STANDARD 11)
 
 include_directories(.)
 
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -Wall -Wextra)
+
 add_executable(CheltuieliFamilie
         Cheltuiala.c
         Cheltuiala.h
@@ -16,4 +18,4 @@ add_executable(CheltuieliFamilie
         Teste.c
         Teste.h
         UI.c
-        UI.h)
+        UI.h errors.h ctrl.c ctrl.h)

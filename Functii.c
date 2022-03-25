@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Domain.h"
+//#include "Domain.h"
 
 void eliminareNewLine(char v[])
 {
@@ -18,7 +18,11 @@ int verificareDate(int zi, int suma, char tip[17])
 		return -1;
 	if (suma < 1)
 		return -2;
-	if (strcmp(tip,"mancare")!=0 && strcmp(tip, "transport")!=0 && strcmp(tip, "telefon&internet")!=0 && strcmp(tip, "imbracaminte")!=0 && strcmp(tip, "altele")!=0)
+	if (    strcmp(tip,"mancare")!=0 &&
+            strcmp(tip, "transport")!=0 &&
+            strcmp(tip, "telefon&internet")!=0 &&
+            strcmp(tip, "imbracaminte")!=0 &&
+            strcmp(tip, "altele")!=0)
 		return -3;
 	return 0;
 }

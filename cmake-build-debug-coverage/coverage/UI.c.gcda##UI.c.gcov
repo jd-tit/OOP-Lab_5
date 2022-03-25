@@ -1,0 +1,861 @@
+        -:    0:Source:C:/Projects/fac/OOP/CheltuieliFamilie/UI.c
+        -:    0:Graph:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\UI.c.gcno
+        -:    0:Data:C:\Projects\fac\OOP\CheltuieliFamilie\cmake-build-debug-coverage\CMakeFiles\CheltuieliFamilie.dir\UI.c.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <string.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include "Functii.h"
+        -:    5:#include "Lista.h"
+        -:    6:#include "Cheltuiala.h"
+        -:    7:#include "ctrl.h"
+        -:    8:#include "UI.h"
+        -:    9:
+function golireBuffer called 0 returned 0% blocks executed 0%
+    #####:   10:void golireBuffer()
+        -:   11:{
+    #####:   12:	while (getchar() != '\n')
+    %%%%%:   12-block  0
+    %%%%%:   12-block  1
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:   13:		;
+    #####:   14:}
+        -:   15:
+        -:   16:
+function weekend_spending called 0 returned 0% blocks executed 0%
+    #####:   17:void weekend_spending(Lista* cheltuieli){
+    #####:   18:    Lista* expenses = get_weekend_expenses(cheltuieli);
+    %%%%%:   18-block  0
+call    0 never executed
+        -:   19:
+    #####:   20:    if(expenses->lungime == 0){
+branch  0 never executed
+branch  1 never executed
+    #####:   21:        puts("Nu s-au facut cheltuieli in weekend");
+    %%%%%:   21-block  0
+call    0 never executed
+    #####:   22:        distrugereLista(expenses);
+call    0 never executed
+    #####:   23:        return;
+        -:   24:    }
+        -:   25:
+    #####:   26:    puts("Cheltuielile din weekend sunt: ");
+    %%%%%:   26-block  0
+call    0 never executed
+    #####:   27:    afisareLista(expenses);
+call    0 never executed
+        -:   28:}
+        -:   29:
+function undo called 0 returned 0% blocks executed 0%
+    #####:   30:void undo(Lista **target, Lista *undoList) {
+    #####:   31:    if(undoList->lungime == 0){
+    %%%%%:   31-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   32:        puts("Nu se mai poate face Undo (ati ajuns la inceput)");
+    %%%%%:   32-block  0
+call    0 never executed
+    #####:   33:        return;
+        -:   34:    }
+    #####:   35:    Lista* last = get_element(undoList, undoList->lungime-1);
+    %%%%%:   35-block  0
+call    0 never executed
+    #####:   36:    distrugereLista(*target);
+call    0 never executed
+    #####:   37:    eliminareDinLista(undoList, undoList->lungime-1);
+call    0 never executed
+    #####:   38:    *target = last;
+    #####:   39:    puts("Undo efectuat cu succes! ");
+call    0 never executed
+        -:   40:}
+        -:   41:
+function adaugareCheltuiala called 0 returned 0% blocks executed 0%
+    #####:   42:int adaugareCheltuiala(Lista *l, Lista *undoList)
+        -:   43:{
+        -:   44:	int zi, suma, v_date;
+        -:   45:	char tip[150], zi_s[20], suma_s[20];
+        -:   46:
+    #####:   47:	printf("\nAti ales sa adaugati o noua Cheltuiala.\n");
+    %%%%%:   47-block  0
+call    0 never executed
+    #####:   48:	printf("\nZiua: "); fgets(zi_s, sizeof(zi_s), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   49:	eliminareNewLine(zi_s);
+call    0 never executed
+    #####:   50:	printf("\nSuma: "); fgets(suma_s, sizeof(suma_s), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   51:	eliminareNewLine(suma_s);
+call    0 never executed
+    #####:   52:	printf("\nTipul: "); fgets(tip, sizeof(tip), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   53:	eliminareNewLine(tip);
+call    0 never executed
+        -:   54:
+    #####:   55:	zi = transformareStringNumar(zi_s);
+call    0 never executed
+    #####:   56:	suma = transformareStringNumar(suma_s);
+call    0 never executed
+        -:   57:
+    #####:   58:	v_date = verificareDate(zi, suma, tip);
+call    0 never executed
+    #####:   59:	if (v_date == 0)
+branch  0 never executed
+branch  1 never executed
+        -:   60:	{
+    #####:   61:        Lista* backup = copyLista(l);
+    %%%%%:   61-block  0
+call    0 never executed
+    #####:   62:        push_back(undoList,backup);
+call    0 never executed
+        -:   63:
+    #####:   64:		Cheltuiala* c = formareCheltuiala(zi, suma, tip);
+call    0 never executed
+    #####:   65:        push_back(l, c);
+call    0 never executed
+    #####:   66:		printf("\nCheltuiala a fost introdusa.\n");
+call    0 never executed
+        -:   67:	}
+        -:   68:	else
+        -:   69:	{
+    #####:   70:		if (v_date == -1)
+    %%%%%:   70-block  0
+branch  0 never executed
+branch  1 never executed
+        -:   71:		{
+    #####:   72:			printf("Zi incorecta.\n");
+    %%%%%:   72-block  0
+call    0 never executed
+    #####:   73:			return -1;
+        -:   74:		}
+    #####:   75:		if (v_date == -2)
+    %%%%%:   75-block  0
+branch  0 never executed
+branch  1 never executed
+        -:   76:		{
+    #####:   77:			printf("Suma incorecta.\n");
+    %%%%%:   77-block  0
+call    0 never executed
+    #####:   78:			return -2;
+        -:   79:		}
+        -:   80:
+    #####:   81:		printf("Tip incorect.\n");
+    %%%%%:   81-block  0
+call    0 never executed
+    #####:   82:		return -3;
+        -:   83:
+        -:   84:	}
+    #####:   85:	return 0;
+        -:   86:}
+        -:   87:
+function afisareLista called 0 returned 0% blocks executed 0%
+    #####:   88:void afisareLista(Lista* l)
+        -:   89:{
+    #####:   90:	size_t lungime = getLungime(l);
+    %%%%%:   90-block  0
+call    0 never executed
+    #####:   91:	if (l == 0)
+branch  0 never executed
+branch  1 never executed
+    #####:   92:		printf("\nNu exista cheltuieli.\n");
+    %%%%%:   92-block  0
+call    0 never executed
+        -:   93:	else
+    #####:   94:		for (int i = 0; i < lungime; i++)
+    %%%%%:   94-block  0
+    %%%%%:   94-block  1
+branch  0 never executed
+branch  1 never executed
+        -:   95:		{
+    #####:   96:			Cheltuiala* c = get_element(l, i);
+    %%%%%:   96-block  0
+call    0 never executed
+    #####:   97:			printf("Cheltuiala nr-> %d: \nZiua - %d", i+1, c->zi);
+call    0 never executed
+    #####:   98:			printf("\nSuma - %d", c->suma);
+call    0 never executed
+    #####:   99:			printf("\nTip - %s\n", c->tip);
+call    0 never executed
+        -:  100:		}
+    #####:  101:}
+        -:  102:
+function modificareCheltuiala called 0 returned 0% blocks executed 0%
+    #####:  103:int modificareCheltuiala(Lista *l, Lista *undoList)
+        -:  104:{
+        -:  105:	int numar, zi, suma, v_date;
+        -:  106:	char tip[150], zi_s[20], suma_s[20], numar_s[20];
+    #####:  107:	if (getLungime(l) == 0)
+    %%%%%:  107-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  108:	{
+    #####:  109:		printf("\nNu exista cheltuieli.");
+    %%%%%:  109-block  0
+call    0 never executed
+    #####:  110:		return -4;
+        -:  111:	}
+    #####:  112:	printf("\nAti ales sa modificati o Cheltuiala existenta.\n");
+    %%%%%:  112-block  0
+call    0 never executed
+    #####:  113:	printf("\nLista curenta de cheltuieli este:\n");
+call    0 never executed
+    #####:  114:	afisareLista(l);
+call    0 never executed
+    #####:  115:	printf("Introduceti nr. cheltuielii care doriti sa o modificati: "); fgets(numar_s, sizeof(numar_s), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  116:	eliminareNewLine(numar_s);
+call    0 never executed
+    #####:  117:	numar = transformareStringNumar(numar_s);
+call    0 never executed
+    #####:  118:	numar = numar - 1;
+    #####:  119:	if (!existaPozitie(numar, l))
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  120:	{
+    #####:  121:		printf("Nu exista aceasta pozitie.\n");
+    %%%%%:  121-block  0
+call    0 never executed
+    #####:  122:		return -5;
+        -:  123:	}
+        -:  124:
+    #####:  125:	printf("\nIntroduceti noile date: ");
+    %%%%%:  125-block  0
+call    0 never executed
+    #####:  126:	printf("\nZiua: "); fgets(zi_s, sizeof(zi_s), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  127:	eliminareNewLine(zi_s);
+call    0 never executed
+    #####:  128:	printf("\nSuma: "); fgets(suma_s, sizeof(suma_s), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  129:	eliminareNewLine(suma_s);
+call    0 never executed
+    #####:  130:	printf("\nTipul: "); fgets(tip, sizeof(tip), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  131:	eliminareNewLine(tip);
+call    0 never executed
+        -:  132:
+    #####:  133:	zi = transformareStringNumar(zi_s);
+call    0 never executed
+    #####:  134:	suma = transformareStringNumar(suma_s);
+call    0 never executed
+        -:  135:
+    #####:  136:	v_date = verificareDate(zi, suma, tip);
+call    0 never executed
+    #####:  137:	if (v_date == 0)
+branch  0 never executed
+branch  1 never executed
+        -:  138:	{
+    #####:  139:        Lista* backup = copyLista(l);
+    %%%%%:  139-block  0
+call    0 never executed
+    #####:  140:        push_back(undoList,backup);
+call    0 never executed
+        -:  141:
+    #####:  142:		Cheltuiala* c = formareCheltuiala(zi, suma, tip);
+call    0 never executed
+    #####:  143:		inlocuireInLista(l, c, numar);
+call    0 never executed
+    #####:  144:		printf("\nCheltuiala nr. %d a fost modificata.\n", numar+1);
+call    0 never executed
+        -:  145:	}
+        -:  146:	else
+        -:  147:	{
+    #####:  148:		if (v_date == -1)
+    %%%%%:  148-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  149:		{
+    #####:  150:			printf("Zi incorecta.\n");
+    %%%%%:  150-block  0
+call    0 never executed
+    #####:  151:			return -1;
+        -:  152:		}
+    #####:  153:		if (v_date == -2)
+    %%%%%:  153-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  154:		{
+    #####:  155:			printf("Suma incorecta.\n");
+    %%%%%:  155-block  0
+call    0 never executed
+    #####:  156:			return -2;
+        -:  157:		}
+        -:  158:
+    #####:  159:		printf("Tip incorect.\n");
+    %%%%%:  159-block  0
+call    0 never executed
+    #####:  160:		return -3;
+        -:  161:	}
+    #####:  162:	return 0;
+        -:  163:}
+        -:  164:
+function stergereCheltuiala called 0 returned 0% blocks executed 0%
+    #####:  165:int stergereCheltuiala(Lista *l, Lista *undoList)
+        -:  166:{
+        -:  167:	int numar;
+        -:  168:	char numar_s[20];
+    #####:  169:	if (getLungime(l) == 0)
+    %%%%%:  169-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  170:	{
+    #####:  171:		printf("\nNu exista cheltuieli.");
+    %%%%%:  171-block  0
+call    0 never executed
+    #####:  172:		return -4;
+        -:  173:	}
+    #####:  174:	printf("\nAti ales sa stergeti o Cheltuiala existenta.\n");
+    %%%%%:  174-block  0
+call    0 never executed
+    #####:  175:	printf("\nLista curenta de cheltuieli este:\n");
+call    0 never executed
+    #####:  176:	afisareLista(l);
+call    0 never executed
+    #####:  177:	printf("Introduceti nr. cheltuielii care doriti sa o stergeti: ");
+call    0 never executed
+    #####:  178:    fgets(numar_s, sizeof(numar), stdin);
+call    0 never executed
+call    1 never executed
+    #####:  179:    eliminareNewLine(numar_s);
+call    0 never executed
+    #####:  180:	numar = transformareStringNumar(numar_s);
+call    0 never executed
+    #####:  181:	numar = numar - 1;
+        -:  182:
+    #####:  183:	if (!existaPozitie(numar, l))
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  184:	{
+    #####:  185:		printf("Nu exista aceasta pozitie.\n");
+    %%%%%:  185-block  0
+call    0 never executed
+    #####:  186:		return -5;
+        -:  187:    }
+        -:  188:
+    #####:  189:    Lista* backup = copyLista(l);
+    %%%%%:  189-block  0
+call    0 never executed
+    #####:  190:    push_back(undoList,backup);
+call    0 never executed
+        -:  191:
+    #####:  192:    eliminareDinLista(l, numar);
+call    0 never executed
+    #####:  193:	printf("Cheltuiala de pe pozitia %d a fost stearsa.\n", numar);
+call    0 never executed
+    #####:  194:	return 0;
+        -:  195:}
+        -:  196:
+function filtrare_zi called 0 returned 0% blocks executed 0%
+    #####:  197:int filtrare_zi(Lista* l)
+        -:  198:{
+        -:  199:	char comanda, zi_s[20];
+        -:  200:	int zi;
+    #####:  201:	golireBuffer();
+    %%%%%:  201-block  0
+call    0 never executed
+    #####:  202:	printf("\n1- Primele 'n' zile ale lunii.");
+call    0 never executed
+    #####:  203:	printf("\n2- Ziua 'n'.");
+call    0 never executed
+    #####:  204:	printf("\n3- Toate zilele de dupa ziua 'n'.");
+call    0 never executed
+    #####:  205:	printf("\nComanda: "); scanf("%c", &comanda);
+call    0 never executed
+call    1 never executed
+    #####:  206:	golireBuffer();
+call    0 never executed
+    #####:  207:	if (comanda < '1' || comanda>'3')
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  207-block  0
+branch  2 never executed
+branch  3 never executed
+        -:  208:	{
+    #####:  209:		printf("Comanda gresita.\n");
+    %%%%%:  209-block  0
+call    0 never executed
+    #####:  210:		return -1;
+        -:  211:	}
+    #####:  212:	printf("\nZiua: "); fgets(zi_s, sizeof(zi_s), stdin);
+    %%%%%:  212-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  213:	eliminareNewLine(zi_s);
+call    0 never executed
+    #####:  214:	zi = transformareStringNumar(zi_s);
+call    0 never executed
+    #####:  215:	int v_date = verificareDate(zi, 1, "altele");
+call    0 never executed
+    #####:  216:	if (v_date == -1)
+branch  0 never executed
+branch  1 never executed
+        -:  217:	{
+    #####:  218:		printf("Zi incorecta.\n");
+    %%%%%:  218-block  0
+call    0 never executed
+    #####:  219:		return -2;
+        -:  220:	}
+    #####:  221:	Lista* rez = filt_zi(comanda, zi, l);
+    %%%%%:  221-block  0
+call    0 never executed
+    #####:  222:	if (rez->lungime == 0)
+branch  0 never executed
+branch  1 never executed
+        -:  223:	{
+    #####:  224:		printf("\nNu exista elemente cu aceasta proprietate.");
+    %%%%%:  224-block  0
+call    0 never executed
+    #####:  225:		return -3;
+        -:  226:	}
+    #####:  227:	printf("\n");
+    %%%%%:  227-block  0
+call    0 never executed
+    #####:  228:	afisareLista(rez);
+call    0 never executed
+    #####:  229:    distrugereLista(rez);
+call    0 never executed
+    #####:  230:	return 0;
+        -:  231:}
+        -:  232:
+function filtrare_suma called 0 returned 0% blocks executed 0%
+    #####:  233:int filtrare_suma(Lista* l)
+        -:  234:{
+        -:  235:	char comanda, suma_s[20];
+        -:  236:	int suma;
+    #####:  237:	golireBuffer();
+    %%%%%:  237-block  0
+call    0 never executed
+    #####:  238:	printf("\n1- Sume mai mici decat 'n'");
+call    0 never executed
+    #####:  239:	printf("\n2- Suma 'n'.");
+call    0 never executed
+    #####:  240:	printf("\n3- Sume mai mari decat 'n'.");
+call    0 never executed
+    #####:  241:	printf("\nComanda: "); scanf("%c", &comanda);
+call    0 never executed
+call    1 never executed
+    #####:  242:	golireBuffer();
+call    0 never executed
+    #####:  243:	if (comanda < '1' || comanda > '3')
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  243-block  0
+branch  2 never executed
+branch  3 never executed
+        -:  244:	{
+    #####:  245:		printf("Comanda gresita.\n");
+    %%%%%:  245-block  0
+call    0 never executed
+    #####:  246:		return -1;
+        -:  247:	}
+    #####:  248:	printf("\nSuma: "); fgets(suma_s, sizeof(suma_s), stdin);
+    %%%%%:  248-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  249:	eliminareNewLine(suma_s);
+call    0 never executed
+    #####:  250:	suma = transformareStringNumar(suma_s);
+call    0 never executed
+    #####:  251:	int v_date = verificareDate(1, suma, "altele");
+call    0 never executed
+    #####:  252:	if (v_date == -2)
+branch  0 never executed
+branch  1 never executed
+        -:  253:	{
+    #####:  254:		printf("Suma incorecta.\n");
+    %%%%%:  254-block  0
+call    0 never executed
+    #####:  255:		return -2;
+        -:  256:	}
+    #####:  257:	Lista* rez = filt_zi(comanda, suma, l);
+    %%%%%:  257-block  0
+call    0 never executed
+    #####:  258:	if (rez->lungime == 0)
+branch  0 never executed
+branch  1 never executed
+        -:  259:	{
+    #####:  260:		printf("\nNu exista elemente cu aceasta proprietate.");
+    %%%%%:  260-block  0
+call    0 never executed
+    #####:  261:		return -3;
+        -:  262:	}
+    #####:  263:	printf("\n");
+    %%%%%:  263-block  0
+call    0 never executed
+    #####:  264:	afisareLista(rez);
+call    0 never executed
+    #####:  265:    distrugereLista(rez);
+call    0 never executed
+    #####:  266:	return 0;
+        -:  267:}
+        -:  268:
+function filtrare_tip called 0 returned 0% blocks executed 0%
+    #####:  269:int filtrare_tip(Lista* l)
+        -:  270:{
+        -:  271:	char comanda, tip[20];
+    #####:  272:	golireBuffer();
+    %%%%%:  272-block  0
+call    0 never executed
+    #####:  273:	printf("\n1- Tipul 'n'");
+call    0 never executed
+    #####:  274:	printf("\n2- Toate cu exceptia tipului 'n'");
+call    0 never executed
+    #####:  275:	printf("\nComanda: "); scanf("%c", &comanda);
+call    0 never executed
+call    1 never executed
+    #####:  276:	golireBuffer();
+call    0 never executed
+    #####:  277:	if (comanda < '1' || comanda>'2')
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  277-block  0
+branch  2 never executed
+branch  3 never executed
+        -:  278:	{
+    #####:  279:		printf("Comanda gresita.\n");
+    %%%%%:  279-block  0
+call    0 never executed
+    #####:  280:		return -1;
+        -:  281:	}
+    #####:  282:	printf("\nTip: "); fgets(tip, sizeof(tip), stdin);
+    %%%%%:  282-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  283:	eliminareNewLine(tip);
+call    0 never executed
+    #####:  284:	int v_date = verificareDate(1, 1, tip);
+call    0 never executed
+    #####:  285:	if (v_date == -3)
+branch  0 never executed
+branch  1 never executed
+        -:  286:	{
+    #####:  287:		printf("Tip incorecta.\n");
+    %%%%%:  287-block  0
+call    0 never executed
+    #####:  288:		return -2;
+        -:  289:	}
+    #####:  290:	Lista* rez = filt_tip(comanda, tip, l);
+    %%%%%:  290-block  0
+call    0 never executed
+    #####:  291:	if (rez->lungime == 0)
+branch  0 never executed
+branch  1 never executed
+        -:  292:	{
+    #####:  293:		printf("\nNu exista elemente cu aceasta proprietate.");
+    %%%%%:  293-block  0
+call    0 never executed
+    #####:  294:		return -3;
+        -:  295:	}
+    #####:  296:	printf("\n");
+    %%%%%:  296-block  0
+call    0 never executed
+    #####:  297:	afisareLista(rez);
+call    0 never executed
+    #####:  298:    distrugereLista(rez);
+call    0 never executed
+    #####:  299:	return 0;
+        -:  300:}
+        -:  301:
+function filtrare called 0 returned 0% blocks executed 0%
+    #####:  302:int filtrare(Lista* l)
+        -:  303:{
+    #####:  304:	int ok = 1;
+        -:  305:	char proprietate[10];
+        -:  306:
+    #####:  307:	if (getLungime(l) == 0)
+    %%%%%:  307-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  308:	{
+    #####:  309:		printf("\nNu exista cheltuieli.");
+    %%%%%:  309-block  0
+call    0 never executed
+    #####:  310:		return -1;
+        -:  311:	}
+    #####:  312:	printf("\nAti ales sa filtrati Lista dupa o proprietate. (zi, suma sau tip)");
+    %%%%%:  312-block  0
+call    0 never executed
+    #####:  313:	printf("\nProprietatea este: "); fgets(proprietate, sizeof(proprietate), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  314:	eliminareNewLine(proprietate);
+call    0 never executed
+    #####:  315:	if (strcmp(proprietate, "zi") == 0)
+branch  0 never executed
+branch  1 never executed
+        -:  316:	{
+    #####:  317:		filtrare_zi(l);
+    %%%%%:  317-block  0
+call    0 never executed
+    #####:  318:		ok = 0;
+        -:  319:	}
+    #####:  320:	if (strcmp(proprietate, "suma") == 0)
+    %%%%%:  320-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  321:	{
+    #####:  322:		filtrare_suma(l);
+    %%%%%:  322-block  0
+call    0 never executed
+    #####:  323:		ok = 0;
+        -:  324:	}
+    #####:  325:	if (strcmp(proprietate, "tip") == 0)
+    %%%%%:  325-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  326:	{
+    #####:  327:		filtrare_tip(l);
+    %%%%%:  327-block  0
+call    0 never executed
+    #####:  328:		ok = 0;
+        -:  329:	}
+    #####:  330:	if (ok == 1)
+    %%%%%:  330-block  0
+branch  0 never executed
+branch  1 never executed
+        -:  331:	{
+    #####:  332:		printf("\nProprietate incorecta.");
+    %%%%%:  332-block  0
+call    0 never executed
+    #####:  333:		return -2;
+        -:  334:	}
+    #####:  335:	return 0;
+    %%%%%:  335-block  0
+        -:  336:}
+        -:  337:
+function sortare called 0 returned 0% blocks executed 0%
+    #####:  338:int sortare(Lista* l)
+        -:  339:{
+        -:  340:	char proprietate[10], ordine[15];
+        -:  341:
+    #####:  342:	if (getLungime(l) == 0)
+    %%%%%:  342-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+        -:  343:	{
+    #####:  344:		printf("\nNu exista cheltuieli.");
+    %%%%%:  344-block  0
+call    0 never executed
+    #####:  345:		return -1;
+        -:  346:	}
+    #####:  347:	printf("\nAti ales sa sortati Lista dupa o proprietate. (suma sau tip)");
+    %%%%%:  347-block  0
+call    0 never executed
+    #####:  348:	printf("\nProprietatea este: "); fgets(proprietate, sizeof(proprietate), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  349:	eliminareNewLine(proprietate);
+call    0 never executed
+    #####:  350:	if (strcmp(proprietate, "suma") != 0 && strcmp(proprietate, "tip") != 0)
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  350-block  0
+branch  2 never executed
+branch  3 never executed
+        -:  351:	{
+    #####:  352:		printf("\nProprietate incorecta.");
+    %%%%%:  352-block  0
+call    0 never executed
+    #####:  353:		return -2;
+        -:  354:	}
+    #####:  355:	printf("\nLista poate fi sortata crescator sau descrescator.");
+    %%%%%:  355-block  0
+call    0 never executed
+    #####:  356:	printf("\nLista va fi sortata: "); fgets(ordine, sizeof(ordine), stdin);
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  357:	eliminareNewLine(ordine);
+call    0 never executed
+    #####:  358:	if (strcmp(ordine, "crescator") != 0 && strcmp(ordine, "descrescator") != 0)
+branch  0 never executed
+branch  1 never executed
+    %%%%%:  358-block  0
+branch  2 never executed
+branch  3 never executed
+        -:  359:	{
+    #####:  360:		printf("\nOrdine incorecta.");
+    %%%%%:  360-block  0
+call    0 never executed
+    #####:  361:		return -3;
+        -:  362:	}
+        -:  363:	
+        -:  364:	Lista* rez;
+        -:  365:	int ord;
+    #####:  366:	if (strcmp(ordine, "crescator") == 0)
+    %%%%%:  366-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  367:		ord = 1;
+    %%%%%:  367-block  0
+        -:  368:	else
+    #####:  369:		ord = -1;
+    %%%%%:  369-block  0
+    #####:  370:	if(strcmp(proprietate, "suma") == 0)
+    %%%%%:  370-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:  371:		rez = sortareLista(l,compSuma,ord);
+    %%%%%:  371-block  0
+call    0 never executed
+        -:  372:	else
+    #####:  373:		rez = sortareLista(l,compTip,ord);
+    %%%%%:  373-block  0
+call    0 never executed
+    #####:  374:	printf("\n");
+    %%%%%:  374-block  0
+call    0 never executed
+    #####:  375:	afisareLista(rez);
+call    0 never executed
+    #####:  376:    distrugereLista(rez);
+call    0 never executed
+    #####:  377:	return 0;
+        -:  378:}
+        -:  379:
+function run called 1 returned 0% blocks executed 76%
+        1:  380:void run()
+        -:  381:{
+        1:  382:    Lista* undoList = malloc(sizeof(Lista));
+        1:  383:    Lista* listaCheltuieli = malloc(sizeof(Lista));
+        1:  384:    initList(listaCheltuieli, sizeof(Cheltuiala), distrugereCheltuiala, (copy_function) copiereCheltuiala);
+        1:  384-block  0
+call    0 returned 1
+        1:  385:    initList(undoList, sizeof (Lista*), (destructor) distrugereLista, (copy_function) copyLista);
+call    0 returned 1
+        -:  386:	char comanda[10];
+        -:  387:	while(true)
+        -:  388:	{
+        1:  389:		puts("\nAceasta aplicatie permite gestionarea cheltuielilor unei familii");
+        1:  389-block  0
+call    0 returned 1
+        1:  390:		puts("1 - Adaugarea unei noi cheltuieli");
+call    0 returned 1
+        1:  391:		puts("2 - Modificarea unei cheltuieli");
+call    0 returned 1
+        1:  392:		puts("3 - Stergerea unei cheltueli");
+call    0 returned 1
+        1:  393:		puts("4 - Vizualizarea listei de cheltuieli, filtrata dupa o proprietate");
+call    0 returned 1
+        1:  394:		puts("5 - Vizualizarea listei de cheltuieli, ordonata dupa suma sau tip");
+call    0 returned 1
+        1:  395:		puts("6 - Afisare Lista cheltuieli");
+call    0 returned 1
+        1:  396:        puts("7 - Cheltuielile din weekend-uri (luna incepe intr-o luni)");
+call    0 returned 1
+        1:  397:        puts("8 - Undo");
+call    0 returned 1
+        1:  398:		puts("9 - Inchiderea aplicatiei");
+call    0 returned 1
+        1:  399:		puts("Comanda: ");
+call    0 returned 1
+        -:  400:		//scanf_s("%c", &comanda, 1);
+        1:  401:		fgets(comanda, sizeof(comanda), stdin);
+call    0 returned 1
+call    1 returned 1
+        1:  402:		eliminareNewLine(comanda);
+call    0 returned 1
+        1:  403:		if (strcmp(comanda,"1")==0)
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:  404:        {
+    #####:  405:            adaugareCheltuiala(listaCheltuieli, undoList);
+    %%%%%:  405-block  0
+call    0 never executed
+        1:  406:		} else if (strcmp(comanda, "2") == 0)
+        1:  406-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:  407:		{
+    #####:  408:            modificareCheltuiala(listaCheltuieli, undoList);
+    %%%%%:  408-block  0
+call    0 never executed
+        1:  409:		} else if (strcmp(comanda, "3") == 0)
+        1:  409-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:  410:		{
+    #####:  411:            stergereCheltuiala(listaCheltuieli, undoList);
+    %%%%%:  411-block  0
+call    0 never executed
+        1:  412:		} else if (strcmp(comanda, "4") == 0)
+        1:  412-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:  413:		{
+    #####:  414:			filtrare(listaCheltuieli);
+    %%%%%:  414-block  0
+call    0 never executed
+        1:  415:		} else if (strcmp(comanda, "5") == 0)
+        1:  415-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+        -:  416:		{
+    #####:  417:			sortare(listaCheltuieli);
+    %%%%%:  417-block  0
+call    0 never executed
+        1:  418:		} else if (strcmp(comanda, "6") == 0) {
+        1:  418-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:  419:            afisareLista(listaCheltuieli);
+    %%%%%:  419-block  0
+call    0 never executed
+        1:  420:        } else if(strcmp(comanda, "7") == 0){
+        1:  420-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:  421:            weekend_spending(listaCheltuieli);
+    %%%%%:  421-block  0
+call    0 never executed
+        1:  422:        } else if(strcmp(comanda, "8") == 0){
+        1:  422-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    #####:  423:            undo(&listaCheltuieli,  undoList);
+    %%%%%:  423-block  0
+call    0 never executed
+        1:  424:		} else if (strcmp(comanda, "9") == 0)
+        1:  424-block  0
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        -:  425:		{
+        1:  426:            distrugereLista(listaCheltuieli);
+        1:  426-block  0
+call    0 returned 1
+        1:  427:            puts("La revedere!");
+call    0 returned 1
+        1:  428:            exit(0);
+call    0 returned 0
+        -:  429:		} else {
+    #####:  430:           puts("\nComanda incorecta.");
+    %%%%%:  430-block  0
+call    0 never executed
+        -:  431:        }
+        -:  432:	}
+        -:  433:}
